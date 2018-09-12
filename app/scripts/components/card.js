@@ -55,10 +55,13 @@ class Card extends Component {
               <span className="genre-list">{genresList}</span>
               <span className="production-list">{productionList}</span>
               <div className="row nopadding release-details">
-                <div className="col-xs-6"> Original Release: <span className="meta-data">{data.release}</span></div>
-                <div className="col-xs-6"> Number of Seasons: <span className="meta-data">{data.runtime} </span> </div>
-                <div className="col-xs-6"> Box Office: <span className="meta-data">{totalRevenue}</span></div>
-                <div className="col-xs-6"> Vote Average: <span className="meta-data">{data.vote}</span></div>
+                <div className="col-xs-12"> Original Release: <span className="meta-data">{data.release}</span></div>
+                <div className="col-xs-12"><span className="meta-data"></span></div>
+                <div className="col-xs-12"> Number of Seasons: <span className="meta-data">{data.runtime} </span> </div>
+                <div className="col-xs-12"><span className="meta-data"></span></div>
+                <div className="col-xs-12"> Box Office: <span className="meta-data">{totalRevenue}</span></div>
+                <div className="col-xs-12"><span className="meta-data"></span></div>
+                <div className="col-xs-12"> Vote Average: <span className="meta-data">{data.vote}</span></div>
               </div>
             </div>
           </div>

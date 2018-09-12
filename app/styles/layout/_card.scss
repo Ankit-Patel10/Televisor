@@ -7,6 +7,7 @@
 /* poster */
 .poster-container {
   .poster {
+    position: relative;
     width: 100%;
     border-radius: 0 0 3px 3px;
   }
@@ -25,7 +26,7 @@
   }
 
   .additional-details {
-    margin: 35px 0 20px;
+    margin: 35px 0 300px;
     font-family: $oswald;
 
     .genre-list {
