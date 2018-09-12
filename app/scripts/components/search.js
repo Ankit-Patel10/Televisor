@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-const TMDBLogo = "./images/tmdb.svg";
 
 class SearchBox extends Component {
   handleChange(event) {
     event.target.select();
   }
-  
+
   render() {
     return (
       <div className="col-xs-12 search-container nopadding">

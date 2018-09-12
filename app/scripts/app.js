@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app-main';
+import App from './components/main';
 import 'whatwg-fetch';
 require('es6-promise').polyfill();
 

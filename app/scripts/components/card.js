@@ -52,6 +52,7 @@ class Card extends Component {
         </div>
       )
     }
+    
   componentDidUpdate() {
     document.body.style.backgroundImage = 'url(' + backdropIMG + ')';
   }
