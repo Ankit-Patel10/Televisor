@@ -2,12 +2,12 @@
 
 // container
 .search-container {
-  margin: 30px 0;
+  margin: 30px -196px 60px;
 
   .searchbox {
     label {
       width: 100%;
-      position: relative;
+      position: absolute;
 
       &:before {
         color: $midGrey;
@@ -27,6 +27,7 @@
       width: 100%; // full width input search
       background: none;
       border-bottom: solid 1px white;
+
 
       .form-control {
         animation: fadein ease-in 0.5s;

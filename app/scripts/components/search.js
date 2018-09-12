@@ -27,7 +27,7 @@ class SearchBox extends Component {
                 onClick={this.handleChange}
                 className="searchbox__input typeahead form-control"
                 type="text"
-                placeholder="Search Movie Title..."
+                placeholder="Search Television Title..."
                 id="q"
               />
               {/* </label> */}
