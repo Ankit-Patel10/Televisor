@@ -53,7 +53,7 @@ class Card extends Component {
             <p>{data.overview}</p>
             <div className="additional-details">
               <span className="genre-list">{genresList}</span>
-              <span className="production-list">{productionList}</span>
+              <span className="production-list"></span>
               <div className="row nopadding release-details">
                 <div className="col-xs-12"> Original Release: <span className="meta-data">{data.release}</span></div>
                 <div className="col-xs-12"><span className="meta-data"></span></div>
