@@ -7,13 +7,13 @@ class App extends Component {
     super(props)
 
     this.state = {
-      movieID: 1402 // set initital load movie - Interstellar
+      televisionID: 1402 // set initital load movie - Interstellar
     }
   }
   render() {
     return (
       <div>
-        <SearchBox fetchMovieID={this.fetchMovieID.bind(this)}/>
+        <SearchBox fetchTelevisionID={this.fetchTelevisionID.bind(this)}/>
         <Card data={this.state}/>
       </div>
     )
@@ -26,19 +26,17 @@ class App extends Component {
       // update state with API data
       console.log(data);
       this.setState({
-        movieID: data.id,
+        televisionID: data.id,
         original_title: data.original_title,
         tagline: data.tagline,
         overview: data.overview,
         homepage: data.homepage,
         poster: data.poster_path,
-        production: data.production_companies,
-        production_countries: data.production_countries,
         genre: data.genres,
         release: data.first_air_date,
         vote: data.vote_average,
         runtime: data.number_of_seasons,
-        revenue: data.status,
+        status: data.status,
         backdrop: data.backdrop_path
 
       })
@@ -46,16 +44,16 @@ class App extends Component {
 
   } // end function
 
-  fetchMovieID(televisionID) {
+  fetchTelevisionID(televisionID) {
     let url = `https://api.themoviedb.org/3/tv/${televisionID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
   } // end function
 
   componentDidMount() {
-    let url = `https://api.themoviedb.org/3/tv/${this.state.movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`
+    let url = `https://api.themoviedb.org/3/tv/${this.state.televisionID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
 
-    //========================= BLOODHOUND ==============================//
+ 
     let suggests = new Bloodhound({
       datumTokenizer: function(datum) {
         return Bloodhound.tokenizers.whitespace(datum.value);
@@ -64,36 +62,27 @@ class App extends Component {
       remote: {
         url: 'https://api.themoviedb.org/3/search/tv?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
         filter: function(tvshow) {
-          console.log(tvshow);
-          // Map the remote source JSON array to a JavaScript object array
           return $.map(tvshow.results, function(tvshow) {
             return {
-              value: tvshow.original_name, // search original title
-              id: tvshow.id // get ID of movie simultaniously
+              value: tvshow.original_name,
+              id: tvshow.id
             };
           });
-        } // end filter
-      } // end remote
-    }); // end new Bloodhound
+        }
+      }
+    });
 
-    suggests.initialize(); // initialise bloodhound suggestion engine
+    suggests.initialize();
 
-    //========================= END BLOODHOUND ==============================//
-
-    //========================= TYPEAHEAD ==============================//
-    // Instantiate the Typeahead UI
     $('.typeahead').typeahead({
       hint: true,
       highlight: true,
       minLength: 2
     }, {source: suggests.ttAdapter()}).on('typeahead:selected', function(obj, datum) {
 
-      this.fetchMovieID(datum.id)
-    }.bind(this)); // END Instantiate the Typeahead UI
-    //========================= END TYPEAHEAD ==============================//
+      this.fetchTelevisionID(datum.id)
+    }.bind(this));
 
-  } // end component did mount function
-
-  // } // END CLASS - APP
+  }
 }
 module.exports = App;

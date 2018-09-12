@@ -15,7 +15,6 @@ class Card extends Component {
           production = data.production,
           productionCountries = data.production_countries,
           genres = data.genre,
-          totalRevenue = data.revenue,
           productionList = nestedDataToString(production),
           productionCountriesList = nestedDataToString(productionCountries),
           noData = '-',
@@ -30,12 +29,6 @@ class Card extends Component {
         } else {
           data.vote = data.vote + '/10'
         };
-
-      if (totalRevenue === 'undefined' || totalRevenue === 0) {
-           totalRevenue = noData
-         } else {
-           totalRevenue = numeral(data.revenue).format('($0,0)');
-         };
 
       if(data.poster== null){
         posterIMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g';
@@ -59,7 +52,7 @@ class Card extends Component {
                 <div className="col-xs-12"><span className="meta-data"></span></div>
                 <div className="col-xs-12"> Number of Seasons: <span className="meta-data">{data.runtime} </span> </div>
                 <div className="col-xs-12"><span className="meta-data"></span></div>
-                <div className="col-xs-12"> Status: <span className="meta-data">{data.revenue}</span></div>
+                <div className="col-xs-12"> Status: <span className="meta-data">{data.status}</span></div>
                 <div className="col-xs-12"><span className="meta-data"></span></div>
                 <div className="col-xs-12"> Public Rating: <span className="meta-data">{data.vote}</span></div>
               </div>
