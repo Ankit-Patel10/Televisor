@@ -24,6 +24,7 @@ class App extends Component {
 
     fetch(url).then((res) => res.json()).then((data) => {
       // update state with API data
+      console.log(data);
       this.setState({
         movieID: data.id,
         original_title: data.original_title,
@@ -37,7 +38,7 @@ class App extends Component {
         release: data.first_air_date,
         vote: data.vote_average,
         runtime: data.number_of_seasons,
-        revenue: data.revenue,
+        revenue: data.status,
         backdrop: data.backdrop_path
 
       })
