@@ -24,7 +24,6 @@ class App extends Component {
 
     fetch(url).then((res) => res.json()).then((data) => {
       // update state with API data
-      console.log(data);
       this.setState({
         movieID: data.id,
         original_title: data.original_title,
@@ -44,8 +43,6 @@ class App extends Component {
       })
     })
 
-    // .catch((err) => console.log('Movie not found!'))
-
   } // end function
 
   fetchMovieID(televisionID) {
@@ -60,18 +57,18 @@ class App extends Component {
     //========================= BLOODHOUND ==============================//
     let suggests = new Bloodhound({
       datumTokenizer: function(datum) {
+        console.log(datum);
         return Bloodhound.tokenizers.whitespace(datum.value);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
         url: 'https://api.themoviedb.org/3/search/tv?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
-        filter: function(movies) {
+        filter: function(tvshow) {
           // Map the remote source JSON array to a JavaScript object array
-          return $.map(movies.results, function(movie) {
-            console.log(movie);
+          return $.map(tvshow.results, function(tvshow) {
             return {
-              value: movie.original_title, // search original title
-              id: movie.id // get ID of movie simultaniously
+              value: tvshow.original_title, // search original title
+              id: tvshow.id // get ID of movie simultaniously
             };
           });
         } // end filter
@@ -89,6 +86,7 @@ class App extends Component {
       highlight: true,
       minLength: 2
     }, {source: suggests.ttAdapter()}).on('typeahead:selected', function(obj, datum) {
+
       this.fetchMovieID(datum.id)
     }.bind(this)); // END Instantiate the Typeahead UI
     //========================= END TYPEAHEAD ==============================//
