@@ -1,11 +1,6 @@
-// bootstrap
 $icon-font-path: "/fonts/bootstrap/";
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
-
-// helpers
-@import "helpers/_animations.scss";
-
-// layout
 @import 'layout/_body';
 @import 'layout/_search';
 @import 'layout/_card';
+@import "helpers/_animations.scss";
