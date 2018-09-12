@@ -7,7 +7,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      televisionID: 1402 // set initital load movie - Interstellar
+      televisionID: 1402 // set initital load tv show to The Walking Dead
     }
   }
   render() {
@@ -17,9 +17,8 @@ class App extends Component {
         <Card data={this.state}/>
       </div>
     )
-  } // END render
+  } 
 
-  // the api request function
   fetchApi(url) {
 
     fetch(url).then((res) => res.json()).then((data) => {
@@ -28,7 +27,6 @@ class App extends Component {
       this.setState({
         televisionID: data.id,
         original_title: data.original_title,
-        tagline: data.tagline,
         overview: data.overview,
         homepage: data.homepage,
         poster: data.poster_path,
@@ -42,12 +40,12 @@ class App extends Component {
       })
     })
 
-  } // end function
+  }
 
   fetchTelevisionID(televisionID) {
     let url = `https://api.themoviedb.org/3/tv/${televisionID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
-  } // end function
+  } 
 
   componentDidMount() {
     let url = `https://api.themoviedb.org/3/tv/${this.state.televisionID}?&api_key=cfe422613b250f702980a3bbf9e90716`
