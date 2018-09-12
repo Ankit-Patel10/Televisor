@@ -61,7 +61,7 @@ class Card extends Component {
                 <div className="col-xs-12"><span className="meta-data"></span></div>
                 <div className="col-xs-12"> Status: <span className="meta-data">{data.revenue}</span></div>
                 <div className="col-xs-12"><span className="meta-data"></span></div>
-                <div className="col-xs-12"> Vote Average: <span className="meta-data">{data.vote}</span></div>
+                <div className="col-xs-12"> Public Rating: <span className="meta-data">{data.vote}</span></div>
               </div>
             </div>
           </div>
