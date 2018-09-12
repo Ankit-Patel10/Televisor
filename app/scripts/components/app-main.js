@@ -57,17 +57,17 @@ class App extends Component {
     //========================= BLOODHOUND ==============================//
     let suggests = new Bloodhound({
       datumTokenizer: function(datum) {
-        console.log(datum);
         return Bloodhound.tokenizers.whitespace(datum.value);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
         url: 'https://api.themoviedb.org/3/search/tv?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
         filter: function(tvshow) {
+          console.log(tvshow);
           // Map the remote source JSON array to a JavaScript object array
           return $.map(tvshow.results, function(tvshow) {
             return {
-              value: tvshow.original_title, // search original title
+              value: tvshow.original_name, // search original title
               id: tvshow.id // get ID of movie simultaniously
             };
           });
