@@ -28,7 +28,7 @@ class Card extends Component {
        if (data.vote === 'undefined' || data.vote === 0) {
           data.vote = noData
         } else {
-          data.vote = data.vote + ' / 10'
+          data.vote = data.vote + '/10'
         };
 
       if (totalRevenue === 'undefined' || totalRevenue === 0) {
