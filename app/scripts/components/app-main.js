@@ -48,9 +48,8 @@ class App extends Component {
 
   } // end function
 
-  fetchMovieID(movieID) {
-    console.log(movieID);
-    let url = `https://api.themoviedb.org/3/tv/${movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`
+  fetchMovieID(televisionID) {
+    let url = `https://api.themoviedb.org/3/tv/${televisionID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
   } // end function
 
