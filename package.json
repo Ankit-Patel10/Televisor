@@ -6,7 +6,7 @@
     "url": "https://github.com/Ankit-Patel10/Televisor"
   },
   "scripts": {
-    "start": "gulp serve",
+    "start": "gulp watch",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
