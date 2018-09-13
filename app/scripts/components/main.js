@@ -22,8 +22,6 @@ class App extends Component {
   fetchApi(url) {
 
     fetch(url).then((res) => res.json()).then((data) => {
-      // update state with API data
-      console.log(data);
       this.setState({
         televisionID: data.id,
         original_title: data.original_title,
