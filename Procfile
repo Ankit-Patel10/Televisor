@@ -1,1 +1,1 @@
-web: Gulp Watch
+web: gulp watch
